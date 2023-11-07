@@ -3,6 +3,7 @@ import { useState } from 'react';
 export default function FileUpload (): JSX.Element{
 
     //state declarations, can be used to access file in the future
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [file, setFile] = useState<File>();
     const [msgContent, setMsgContent] = useState<string>("Nothing selected.");
 
