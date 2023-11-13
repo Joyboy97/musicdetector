@@ -1,11 +1,25 @@
-pages:
-  stage: deploy
+image: node:latest
+
+stages:
+  - build
+  - run
+
+# Job's name
+first-job:
+  # Define stage
+  stage: build
+  # What to run on the job.
   script:
-  - mkdir .public
-  - cp -r * .public
-  - mv .public public
+    - npm install
   artifacts:
     paths:
-    - public
-  only:
-  - main
+      - node_modules
+
+second-job:
+  stage: run
+  script:
+    - npm run start
+    - node test.js
+  artifacts:
+    paths:
+      - node_modules/
